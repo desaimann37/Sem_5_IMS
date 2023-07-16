@@ -1,0 +1,95 @@
+// Color
+$brown: #2b2520;
+$green: #39dbc2;
+$pink: #f41fbf;
+$yellow: #ffed28;
+$purple: #b028ff;
+$blue: #49A7FF;
+$red: #ff3838;
+$orange: #db7953;
+
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Molle:ital@1&display=swap');
+
+
+// Size
+$extra-large: 110px;
+$large: 84px;
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  
+  * {
+    margin: 20px 0;
+  }
+  
+ 
+  // Style 3, Gradient strip text
+  .stripe-text {
+    position: relative;
+    $random-text: 'quick turnover';
+    $stroke-width: $extra-large * 0.05;
+     font-size: $extra-large;
+     text-transform: uppercase;
+    font-weight: 900;
+    font-family: 'Catamaran', sans-serif;
+    font-style: italic;
+    &:after {
+      position: absolute;
+      left: 0;
+      content: $random-text;
+      $stripe-size: 20px;
+      background: -webkit-repeating-linear-gradient(
+        135deg,
+        $pink,
+        $pink $stripe-size,
+        $yellow $stripe-size,
+        $yellow $stripe-size * 2,
+        $purple $stripe-size * 2,
+        $purple $stripe-size * 3,
+        $green $stripe-size * 3,
+        $green $stripe-size * 4
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-stroke-width: $stroke-width;
+      -webkit-text-stroke-color: white;
+    }
+    &:before {
+      z-index: -1;
+      position: absolute;
+      content: $random-text;
+      color: $pink;
+      top: 0px;
+      left: 0px;
+      $x: 5px;
+      $y: 0px;
+      $step: 1px;
+      text-shadow: $x $y $pink,
+                   $x + $step $y + $step $pink,
+                   $x + $step * 2 $y + $step * 2 $pink,
+                   $x + $step * 3 $y + $step * 3 $pink,
+                   $x + $step * 4 $y + $step * 4 $pink,
+                   $x + $step * 5 $y + $step * 5 $pink,
+                   $x + $step * 6 $y + $step * 6 $pink,
+                   $x + $step * 7 $y + $step * 7 $pink,
+                   $x + $step * 8 $y + $step * 8 $pink,
+                   $x + $step * 9 $y + $step * 9 $pink,
+                   $x + $step * 10 $y + $step * 10 $pink,
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.npm_sidebar{
+    padding-left: 10px;
+    padding-right: 20px; 
+    min-width: 230px;
+    height: 100%;
+    background-color: rgb(203, 233, 223);    
+    position: relative;
+    overflow: auto;
+    z-index: 1;
+}
+
+
+.sidebar{
+    flex: 0.2;
+    float: left;
+    /* overflow-y: scroll; */
+    padding-left: 10px;
+    padding-right: 20px;
+    min-width: 150px;
+    position: relative;
+    transition: width 0.3s ease;
+    background: linear-gradient(rgb(92, 201, 255), rgb(237, 197, 204));
+}
+@media screen and (max-height: 450px) {
+    .npm_sidebar {padding-top: 15px;}
+}
+
+
+.npm_sidebar:hover{
+
+    background-color: #31568a;
+    color: #000000;
+}
+
+

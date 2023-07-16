@@ -1,0 +1,95 @@
+.reactangle_purchase{
+
+    background: rgb(187, 252, 108);
+    height: 150px;
+    width: 350px;
+    border-radius: 30px;
+    border: ridge 5px rgb(39, 185, 80);
+    margin-top: 50px;
+    margin-left: 100px;
+    text-decoration: none;
+    color: white;
+    
+}
+.common_link{
+    text-decoration: none;
+}
+.body{
+    padding: 30px;
+    width: 100%;
+    height: 100vh;
+    flex: 0.8;
+    color: white;
+    background: linear-gradient(rgb(92, 201, 255), rgb(237, 197, 204));
+    overflow-y: overlay;
+}
+.row_1_rectangle{
+    display: flex;
+}
+.row_2_rectangle{
+    display: flex;
+}
+/* .rectangle_purchase:hover, .rectangle_purchase:focus{
+
+    animation : pulse 1s;
+    box-shadow : 0 0 0 2em  rgba(#fff , 0)
+}
+
+@keyframes pulse{
+    0% {box-shadow : 0 0 0 0 var(--hover);}
+
+} */
+
+.h1_text{
+    margin-bottom: 10px;
+    color: black;
+    /* font-family: 'Abril Fatface', cursive; */
+    font-family: 'Kablammo', cursive;
+
+}
+.rectangle_writeoff{
+    background: rgb(249, 204, 254);
+    height: 150px;
+    width: 350px;
+    border-radius: 30px;
+    border: ridge 5px rgb(104, 23, 242);
+    margin-top: 100px;
+    margin-left: 100px;
+    text-decoration: none;
+    color: white;
+}
+.rectangle_maintanance{
+    
+    background: rgb(192, 147, 247);
+    height: 150px;
+    width: 350px;
+    border-radius: 30px;
+    border: ridge 5px rgb(120, 98, 208);
+    margin-left: 150px;
+    margin-top: 100px;
+}
+.rectangle_buyback{    
+
+    background: rgb(252, 193, 141);
+    height: 150px;
+    width: 350px;
+    border-radius: 30px;
+    border: ridge 5px rgb(10, 10, 10);
+    margin-left: 150px;
+    margin-top: 50px;
+}
+.shopIcon{
+    color: rgb(26, 51, 75);
+    margin-top: 20px;
+}
+.buyBack{
+    color: aquamarine;
+    margin-top: 20px;
+}.writeoff{
+    color:blueviolet;
+    margin-top: 20px;
+}
+.maintanance{
+    color: rgb(32, 32, 32);
+    margin-top: 20px;
+}

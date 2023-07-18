@@ -1,5 +1,6 @@
 import React from 'react'
 import SideBar from '../../UI/SideBar'
+
 function History() {
   return (
     <>

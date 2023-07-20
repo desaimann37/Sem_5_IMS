@@ -1,9 +1,6 @@
 .App {
   text-align: center;
 }
-h1,h2,h3{
-  color: var(--main-heading)
-}
 
 .App-logo {
   height: 40vmin;
@@ -59,21 +56,4 @@ h1,h2,h3{
   align-content: center;
   /* font-family: 'Playfair Display', serif; */
   color: rgb(39, 38, 38);
-}
-
-.light-mode{
-
-  --main-heading: #5f99be;
-  --para-clr: #333;
-  --btn-bg-color: #111b20;
-  --btn-text-clr : #fff;
-  --bg-clr: #fff;
-
-}
-.dark-mode{
-  --main-heading: #5f99be;
-  --para-clr: #fff;
-  --btn-bg-color: #5f99be;
-  --btn-text-clr: #fff;
-  --bg-clr: #111b20;
 }

@@ -5,7 +5,6 @@ import Home from './UI/Home';
 import Purchase from './Components/Purchase';
 import Vendors from './Components/Sidebar_Components/Vendors';
 import History from './Components/Sidebar_Components/History';
-import DarkMode from './Components/Sidebar_Components/DarkMode'; 
 
 function App() {
 
@@ -13,7 +12,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <header className='common_header'>
-          <Link className='header' to="/"><h1 className='stripe-text'><DarkMode /></h1></Link>
+          <Link className='header' to="/"><h1 className='stripe-text'>Inventory Management</h1></Link>
           
         </header>
         <Routes>

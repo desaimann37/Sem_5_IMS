@@ -22,23 +22,18 @@
     color: white;
     background: linear-gradient(rgb(92, 201, 255), rgb(237, 197, 204));
     overflow-y: overlay;
+    background-image: url('../img/inventory_mgmt_background_img.jpg');
+    background-size: cover;
+    background-position: fixed;
+    
 }
+
 .row_1_rectangle{
     display: flex;
 }
 .row_2_rectangle{
     display: flex;
 }
-/* .rectangle_purchase:hover, .rectangle_purchase:focus{
-
-    animation : pulse 1s;
-    box-shadow : 0 0 0 2em  rgba(#fff , 0)
-}
-
-@keyframes pulse{
-    0% {box-shadow : 0 0 0 0 var(--hover);}
-
-} */
 
 .h1_text{
     margin-bottom: 10px;

@@ -3,10 +3,10 @@ import SideBar from '../../UI/SideBar'
 
 function History() {
   return (
-    <>
-        <SideBar / >
+    <div className='body'>
+        <SideBar />
         <h1>Inside History!!</h1>
-    </>
+    </div>
   )
 }
 

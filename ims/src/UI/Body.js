@@ -5,6 +5,8 @@ import {Link} from 'react-router-dom';
 import RestoreIcon from '@mui/icons-material/Restore';
 import ConstructionTwoToneIcon from '@mui/icons-material/ConstructionTwoTone';
 import RecyclingIcon from '@mui/icons-material/Recycling';
+
+
 function Body() {
 
   return (
@@ -25,28 +27,6 @@ function Body() {
             <Link to="/maintanance" className='common_link'><ConstructionTwoToneIcon className="maintanance" fontSize='large'/><h1 className='h1_text'>Maintanance</h1></Link>
         </div>
       </div>
-     
-
-      {/* <Box 
-        sx={{
-          display: 'grid',
-          gap: 10,
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          
-        }}
-      >
-        <Item >Item1</Item>
-        <Item >Item2</Item>
-        <Item>Item3</Item>
-        <Item >Item4</Item>
-        
-
-
-      </Box> */}
-
-
-
-      
     </div>
   )
 }

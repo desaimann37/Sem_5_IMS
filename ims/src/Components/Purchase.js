@@ -4,9 +4,7 @@ import SideBar from '../UI/SideBar'
 function Purchase() {
   return (
     <div>
-      <div>   
-       <SideBar />
-      </div>
+      <SideBar />
     </div>    
   )
 }

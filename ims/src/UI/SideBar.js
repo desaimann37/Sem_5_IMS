@@ -4,6 +4,7 @@ import '../CSS/SideBar.css'
 import { Link } from 'react-router-dom';
 import ListIcon from '@mui/icons-material/List';
 import PictureAsPdfTwoToneIcon from '@mui/icons-material/PictureAsPdfTwoTone';
+
 function SideBar() {
 
   return (
@@ -15,22 +16,24 @@ function SideBar() {
               <MenuItem component={<Link to="/vendors"/>} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'} }>
                 Vendors
               </MenuItem>
-              <MenuItem component={<Link to="/history"/>}>
+              <MenuItem component={<Link to="/history"/>} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'} }>
                 History
               </MenuItem>
-              <MenuItem>
+              <MenuItem component={<Link to="/items" />} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'} }>
                 Items
               </MenuItem>
             </SubMenu>
+
             <hr style={{color:'#000000'}}/>
+
             <SubMenu label="Reports" rootStyles={{backgroundColor:'#cbe9df'}} icon = {<PictureAsPdfTwoToneIcon /> }>
-              <MenuItem>
+              <MenuItem component={<Link to="/reports/purchase"/>} >
                 Purchased
               </MenuItem>
-              <MenuItem>
+              <MenuItem component={<Link to="/reports/buyback"/>}>
                 BuyBack
               </MenuItem>
-              <MenuItem>
+              <MenuItem component={<Link to="/reports/maintainance"/>}>
                 Maintainance
               </MenuItem>
             </SubMenu>

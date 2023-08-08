@@ -8,9 +8,12 @@
     overflow: auto;
     z-index: 1;
 }
-
+.vendors_sidebar{
+    margin-left: 0px;
+}
 
 .sidebar{
+    margin-left: 0px;
     flex: 0.2;
     float: left;
     /* overflow-y: scroll; */
@@ -20,6 +23,7 @@
     position: relative;
     transition: width 0.3s ease;
     background: linear-gradient(rgb(92, 201, 255), rgb(237, 197, 204));
+    color: black;
 }
 @media screen and (max-height: 450px) {
     .npm_sidebar {padding-top: 15px;}

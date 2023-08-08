@@ -27,17 +27,20 @@ function SideBar() {
             <hr style={{color:'#000000'}}/>
 
             <SubMenu label="Reports" rootStyles={{backgroundColor:'#cbe9df'}} icon = {<PictureAsPdfTwoToneIcon /> }>
-              <MenuItem component={<Link to="/reports/purchase"/>} >
+
+              <MenuItem component={<Link to="/reports/purchase"/>} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'} }>
                 Purchased
               </MenuItem>
-              <MenuItem component={<Link to="/reports/buyback"/>}>
+              <MenuItem component={<Link to="/reports/buyback"/>} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'} }>
                 BuyBack
               </MenuItem>
-              <MenuItem component={<Link to="/reports/maintainance"/>}>
+              <MenuItem component={<Link to="/reports/maintainance"/>} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'} }>
                 Maintainance
               </MenuItem>
             </SubMenu>
+            <br/><br/><br/><br/>
           </Menu>
+        <center><button className="button-86"><h2>LogOut</h2></button></center>
         </Sidebar>
         {/* </div> */}
     </div>

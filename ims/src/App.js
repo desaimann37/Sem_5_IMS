@@ -10,6 +10,9 @@ import PurchaseReport from './Components/Sidebar_Components/PurchaseReport';
 import BuyBackReport from './Components/Sidebar_Components/BuyBackReport';
 import MaintainanceReport from './Components/Sidebar_Components/MaintainanceReport'; 
 import Items from './Components/Sidebar_Components/Items';
+import BuyBack from './Components/BuyBack';
+import Maintainance from './Components/Maintainance';
+import Writeoff from './Components/Writeoff';
 
 function App() {
 
@@ -36,9 +39,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/purchase" element={<Purchase/>} /> 
+          <Route path="/buyback" element ={<BuyBack/>} />
+          <Route path="/maintainance" element ={<Maintainance />} />
+          <Route path="/writeoff" element ={<Writeoff />} />
+
           <Route path="/vendors" element={<Vendors />} />
           <Route path="/history" element={<History />} />
           <Route path="/items" element={<Items />} />
+
           <Route path="/reports/purchase" element={<PurchaseReport />} />
           <Route path="/reports/buyback" element={<BuyBackReport />} />
           <Route path="/reports/maintainance" element={<MaintainanceReport />} />

@@ -34,6 +34,7 @@ function App() {
       <BrowserRouter>
         <header className='common_header'>
           <Link className='header' to="/"><h1 className='stripe-text'>Inventory Management</h1></Link>
+          
         </header>
         <hr className='hr'/>
         <Routes>

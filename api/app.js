@@ -1,10 +1,10 @@
 var createError = require('http-errors');
 var express = require('express');
-require('dotenv').config()
+require('dotenv').config();
 require('./helpers/init_mongodb');
 var morgan = require('morgan');
-// var cors = require('cors');
 var AuthRoute = require("./routes/Auth.route");
+
 
 var app = express();
 app.use(morgan('dev'))

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017' , {dbName : "auth_tutorial"})
+const url = "mongodb+srv://Ashish:6tmC5FNA8T5IcDiJ@dms.donboph.mongodb.net/DMS";
+
+mongoose.connect(url, { useNewUrlParser: true })
 .then(() => {
     console.log('mongoDb Connected...');
 })

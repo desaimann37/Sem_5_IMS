@@ -1,20 +1,21 @@
 var createError = require('http-errors');
 var express = require('express');
+const path = require('path');
 require('dotenv').config();
 require('./helpers/init_mongodb');
-var morgan = require('morgan');
-var AuthRoute = require("./routes/Auth.route");
-
+var AuthRoute = require("./routes/AuthRoutes");
 
 var app = express();
-app.use(morgan('dev'))
+app.use(express.json());
 
+app.set('views', path.join(__dirname , 'views'));
+app.set('view engine', 'ejs');
 
 app.get('/' , async(req , res , next) =>{
   res.send("Hello From Express!!");
 });
 
-app.use('/auth' , AuthRoute);
+app.use(AuthRoute);
 
 app.use(async (req , res , next)=>{
   next(createError.NotFound());/* npm Package is there called http-errors*/
@@ -30,7 +31,7 @@ app.use((err , req , res , next)=>{
   })
 })
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9000;
 
 app.listen(PORT , ()=>{
   console.log(`Server Running on port ${PORT}`);

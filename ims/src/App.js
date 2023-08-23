@@ -5,7 +5,7 @@ import Home from './UI/Home';
 import Purchase from './Components/Purchase';
 import Vendors from './Components/Sidebar_Components/Vendors';
 import History from './Components/Sidebar_Components/History';
-import { useState , useEffect} from 'react';
+import { useEffect} from 'react';
 import PurchaseReport from './Components/Sidebar_Components/PurchaseReport';
 import BuyBackReport from './Components/Sidebar_Components/BuyBackReport';
 import MaintainanceReport from './Components/Sidebar_Components/MaintainanceReport'; 
@@ -16,17 +16,17 @@ import Writeoff from './Components/Writeoff';
 
 function App() {
 
-  const[backendData , setBackendData] = useState([]);
+  // const[backendData , setBackendData] = useState([]);
 
-  useEffect(() => {
-      fetch("http://localhost:9000/testAPI").then(
-        response => response.text()
-      ).then(
-        data => {
-          setBackendData(data);
-          console.log(backendData.toString());
-        }
-      )
+   useEffect(() => {
+      fetch("http://localhost:9000").then(
+        console.log('Hello From port 9000'));
+      // ).then(
+      //   data => {
+      //    setBackendData(data);
+      //     console.log(backendData.toString());
+      //   }
+      // )
   });
 
   return (

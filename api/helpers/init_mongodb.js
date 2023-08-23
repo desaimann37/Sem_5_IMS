@@ -1,30 +1,16 @@
+// const {MongoClient} = require('mongodb')
+const express = require('express');
 const mongoose = require('mongoose');
 
+
+
 // const url = "mongodb+srv://dm_37:97k4Ldb3XHQHCs5I@cluster0.ifo1imp.mongodb.net/";
+// const client = new MongoClient(url , {useNewUrlParser : true});
 
-// mongoose.connect(url, { useNewUrlParser: true })
-mongoose.connect(process.env.MONGODB_URI , {
-    dbName: process.env.DB_NAME,
-    useNewUrlParser: true,
-})//Returns Promise
-.then(() => {
-    console.log('mongoDb Connected...');
-})
-.catch((err) => console.log(`Error Occured... ${err}`));
+const url = "mongodb://127.0.0.1:27017/auth_tutorial";
 
-mongoose.connection.on('connected' , ()=>{
-    console.log('Mongoose Connected to DB');
-})
-mongoose.connection.on('error' , (err) => {
-    console.log(err.message);
-})
+mongoose.connect(url , {useNewUrlParser : true})
+.then(result => console.log('successfully connected to mongodb local instance')).catch(err => console.log(err))
 
-mongoose.connection.on('disconnected' , ()=>{
-    console.log("Mongoose Connection is disconnected...");
-})
 
-process.on('SIGINT' , async ()=>{
-    await mongoose.connection.close();
-    process.exit(0);
-})
 

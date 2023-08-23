@@ -6,7 +6,6 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import ConstructionTwoToneIcon from '@mui/icons-material/ConstructionTwoTone';
 import RecyclingIcon from '@mui/icons-material/Recycling';
 
-
 function Body() {
 
   return (

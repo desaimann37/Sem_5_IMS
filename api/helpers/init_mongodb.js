@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 // const url = "mongodb+srv://dm_37:97k4Ldb3XHQHCs5I@cluster0.ifo1imp.mongodb.net/";
 
-
 // mongoose.connect(url, { useNewUrlParser: true })
 mongoose.connect(process.env.MONGODB_URI , {
     dbName: process.env.DB_NAME,

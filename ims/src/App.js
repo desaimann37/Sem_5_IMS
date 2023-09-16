@@ -1,5 +1,6 @@
 import './App.css';
 import './UI/Body.js';
+import React from 'react';
 import {BrowserRouter, Route, Routes , Link} from "react-router-dom";
 import Home from './UI/Home';
 import Purchase from './Components/Purchase';
@@ -13,8 +14,10 @@ import Items from './Components/Sidebar_Components/Items';
 import BuyBack from './Components/BuyBack';
 import Maintainance from './Components/Maintainance';
 import Writeoff from './Components/Writeoff';
-import axios from 'axios';
+// import axios from 'axios';
 import { useState } from 'react';
+import MainHeader from './Components/AuthComponents/MainHeader/MainHeader';
+import Navigation from './Components/AuthComponents/MainHeader/Navigation';
 
 function App() {
 /*  -> Testing backend data to be fetched on frontend
@@ -31,19 +34,36 @@ function App() {
     })
   } , []);
 */
+  const [isLoggedIn , setIsLoggedIn] = useState(false);
+
+  useEffect(()=>{
+    const storedUserLoggedInInfo = localStorage.getItem('isLoggedIn');
+    if(storedUserLoggedInInfo === '1'){
+      setIsLoggedIn(true);
+    }
+  },[]);
+
+  const loginHandler = (email , password)=>{
+    localStorage.setItem('isLoggedIn' , 1);
+    setIsLoggedIn(true);
+  }
+  const logoutHandler = (email , password)=>{
+    localStorage.removeItem('isLoggedIn');
+    setIsLoggedIn(false);
+  }
 
 
   return (
     <div className="App">   
-      
       <BrowserRouter>
         <header className='common_header'>
           <Link className='header' to="/"><h1 className='stripe-text'>Inventory Management</h1></Link>
-          
         </header>
         <hr className='hr'/>
         <Routes>
           <Route path="/" element={<Home/>} />
+          <Route path="/login" element={<MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />} />
+          <Route path='/login/nav' element={<Navigation isAuthenticated={isLoggedIn} onLogout={logoutHandler} />} />
           <Route path="/purchase" element={<Purchase/>} /> 
           <Route path="/buyback" element ={<BuyBack/>} />
           <Route path="/maintainance" element ={<Maintainance />} />

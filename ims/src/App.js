@@ -13,24 +13,29 @@ import Items from './Components/Sidebar_Components/Items';
 import BuyBack from './Components/BuyBack';
 import Maintainance from './Components/Maintainance';
 import Writeoff from './Components/Writeoff';
+import axios from 'axios';
+import { useState } from 'react';
 
 function App() {
+/*  -> Testing backend data to be fetched on frontend
 
-  // const[backendData , setBackendData] = useState([]);
+  const [items , setItems] = useState([]);
+  useEffect(()=>{
+    axios.get('http://localhost:9000/')
+    .then((res)=>{
+      setItems(res.data);
+      console.log(res.data);
+    })
+    .catch((err)=>{
+      console.log('error catched while testing /api/test path');
+    })
+  } , []);
+*/
 
-   useEffect(() => {
-      fetch("http://localhost:9000").then(
-        console.log('Hello From port 9000'));
-      // ).then(
-      //   data => {
-      //    setBackendData(data);
-      //     console.log(backendData.toString());
-      //   }
-      // )
-  });
 
   return (
-    <div className="App">
+    <div className="App">   
+      
       <BrowserRouter>
         <header className='common_header'>
           <Link className='header' to="/"><h1 className='stripe-text'>Inventory Management</h1></Link>

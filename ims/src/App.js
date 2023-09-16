@@ -15,6 +15,7 @@ import BuyBack from './Components/BuyBack';
 import Maintainance from './Components/Maintainance';
 import Writeoff from './Components/Writeoff';
 // import axios from 'axios';
+// import Login from './Components/AuthComponents/Login/Login';
 import { useState } from 'react';
 import MainHeader from './Components/AuthComponents/MainHeader/MainHeader';
 import Navigation from './Components/AuthComponents/MainHeader/Navigation';
@@ -33,6 +34,7 @@ function App() {
       console.log('error catched while testing /api/test path');
     })
   } , []);
+
 */
   const [isLoggedIn , setIsLoggedIn] = useState(false);
 
@@ -43,15 +45,14 @@ function App() {
     }
   },[]);
 
-  const loginHandler = (email , password)=>{
+  const loginHandler = (email , password) => {
     localStorage.setItem('isLoggedIn' , 1);
     setIsLoggedIn(true);
   }
-  const logoutHandler = (email , password)=>{
+  const logoutHandler = (email , password) => {
     localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
   }
-
 
   return (
     <div className="App">   
@@ -60,6 +61,7 @@ function App() {
           <Link className='header' to="/"><h1 className='stripe-text'>Inventory Management</h1></Link>
         </header>
         <hr className='hr'/>
+
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />} />
@@ -78,6 +80,7 @@ function App() {
           <Route path="/reports/maintainance" element={<MaintainanceReport />} />
         </Routes>
       </BrowserRouter>
+
     </div>
   );
 }

@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import Login from '../Login/Login';
+import Home from '../../../UI/Home';
 
-function Navigation() {
+const Navigation = (props) => {
   return (
-    <div>Navigation</div>
-  )
+    <nav>
+        <ul>
+            {!props.isLoggedIn && (
+                <Login onLogin={props.loginHandler} />
+            )}
+            {!props.isLoggedIn && (
+                <Home/>
+            )}
+        </ul>
+    </nav>
+    )
 }
 
 export default Navigation

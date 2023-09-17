@@ -6,12 +6,12 @@ const Navigation = (props) => {
   return (
     <nav>
         <ul>
-            {!props.isLoggedIn && (
-                <Login onLogin={props.loginHandler} />
-            )}
-            {!props.isLoggedIn && (
-                <Home/>
-            )}
+        {!props.isLoggedIn && (
+          <Login newOnLogin={props.onLogin} isLoggedIn={props.isAuthenticated} />
+        )}
+        {props.isLoggedIn && (
+          <Home />
+        )}
         </ul>
     </nav>
     )

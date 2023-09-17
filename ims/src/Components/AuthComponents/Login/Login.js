@@ -39,11 +39,13 @@ const Login = (props) => {
     }
     const submitHandler = (event)=>{
         event.preventDefault();
-        props.onLogin(enteredEmail , enteredPassword);
+        props.newOnLogin(enteredEmail , enteredPassword);
     }
+    
 
   return (
     <Card className={classes.login}>
+        <h1>It's Time to Login</h1>
         <form onSubmit={submitHandler}>
         <div
           className={`${classes.control} ${
@@ -64,6 +66,7 @@ const Login = (props) => {
             passwordIsValid === false ? classes.invalid : ''
           }`}
         >
+          <br />
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -73,14 +76,17 @@ const Login = (props) => {
             onBlur={validatePasswordHandler}
           />
         </div>
+        <br />
         <div className={classes.actions}>
-          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
+          <Button type="submit" className={classes.btn} disabled={!formIsValid} onClick={props.newOnLogin}>
             Login
           </Button>
         </div>
+        
+        <br/>
+
+        {(props.isLoggedIn === true) ? "Yes" : "No"}
         </form>
-        <h1>It's Time to logIn</h1>
-    
     </Card>
   )
 }

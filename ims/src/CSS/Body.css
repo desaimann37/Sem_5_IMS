@@ -23,9 +23,9 @@
     background: linear-gradient(rgb(92, 201, 255), rgb(237, 197, 204));
     overflow-y: overlay;
     background-image: url('../img/inventory_mgmt_background_img.jpg');
+    /* background-size: cover; */
     background-size: cover;
     background-position: fixed;
-    
 }
 
 .row_1_rectangle{
@@ -61,6 +61,7 @@
     border-radius: 30px;
     border: ridge 5px rgb(120, 98, 208);
     margin-left: 150px;
+    text-decoration: none;
     margin-top: 100px;
 }
 .rectangle_buyback{    

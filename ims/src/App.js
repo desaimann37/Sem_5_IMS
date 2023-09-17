@@ -49,23 +49,34 @@ function App() {
     localStorage.setItem('isLoggedIn' , 1);
     setIsLoggedIn(true);
   }
-  const logoutHandler = (email , password) => {
+  const logoutHandler = () => {
     localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
   }
 
   return (
-    <div className="App">   
+    <div className="App">  
+      {/* {!isLoggedIn && (
+        <Login onLogin={loginHandler} />
+      )}
+      {isLoggedIn && (
+        <Home/>
+      )} */}
+      
+
       <BrowserRouter>
+      
         <header className='common_header'>
-          <Link className='header' to="/"><h1 className='stripe-text'>Inventory Management</h1></Link>
-        </header>
+          
+           <Link className='header' to="/"><h1 className='stripe-text'>Inventory Management</h1></Link>
+       
+          </header>
         <hr className='hr'/>
 
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Home isLogIn={isLoggedIn} />} />
           <Route path="/login" element={<MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />} />
-          <Route path='/login/nav' element={<Navigation isAuthenticated={isLoggedIn} onLogout={logoutHandler} />} />
+          <Route path='/login/nav' element={<Navigation isAuthenticated={isLoggedIn} onLogout={logoutHandler} onLogin={loginHandler}/>} />
           <Route path="/purchase" element={<Purchase/>} /> 
           <Route path="/buyback" element ={<BuyBack/>} />
           <Route path="/maintainance" element ={<Maintainance />} />

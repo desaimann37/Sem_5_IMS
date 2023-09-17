@@ -39,7 +39,9 @@ function SideBar() {
             </SubMenu>
             <br/><br/><br/><br/>
           </Menu>
-        <center><button className="button-86"><h2>LogOut</h2></button></center>
+        <center> 
+          <button className='button'><span><center>Logout</center></span></button>
+        </center>
         </Sidebar>
         {/* </div> */}
     </div>

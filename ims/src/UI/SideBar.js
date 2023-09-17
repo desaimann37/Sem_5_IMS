@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import ListIcon from '@mui/icons-material/List';
 import PictureAsPdfTwoToneIcon from '@mui/icons-material/PictureAsPdfTwoTone';
 
-function SideBar() {
+const SideBar = (props) => {
   return (
     <div className='sidebar'>
       {/* <div className='sidebar__content'> */}
@@ -40,7 +40,7 @@ function SideBar() {
             <br/><br/><br/><br/>
           </Menu>
         <center> 
-          <button className='button'><span><center>Logout</center></span></button>
+          <button className='button' onClick={props.onLogout}><span><center>Logout</center></span></button>
         </center>
         </Sidebar>
         {/* </div> */}

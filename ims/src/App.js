@@ -19,13 +19,14 @@ import Writeoff from './Components/Writeoff';
 import { useState } from 'react';
 import MainHeader from './Components/AuthComponents/MainHeader/MainHeader';
 import Navigation from './Components/AuthComponents/MainHeader/Navigation';
+import Signup from './Components/AuthComponents/Signup/Signup';
 
 function App() {
 /*  -> Testing backend data to be fetched on frontend
 
   const [items , setItems] = useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:9000/')
+    axios.get('http://localhost:9000/login')
     .then((res)=>{
       setItems(res.data);
       console.log(res.data);
@@ -49,6 +50,13 @@ function App() {
     localStorage.setItem('isLoggedIn' , 1);
     setIsLoggedIn(true);
   }
+  const signupHandler = async(event)=>{
+    
+    //Logic to store email and password in the database :
+    
+    
+    setIsLoggedIn(true);
+  }
   const logoutHandler = () => {
     localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
@@ -56,26 +64,16 @@ function App() {
 
   return (
     <div className="App">  
-      {/* {!isLoggedIn && (
-        <Login onLogin={loginHandler} />
-      )}
-      {isLoggedIn && (
-        <Home/>
-      )} */}
-      
-
       <BrowserRouter>
-      
         <header className='common_header'>
-          
            <Link className='header' to="/"><h1 className='stripe-text'>Inventory Management</h1></Link>
-       
           </header>
         <hr className='hr'/>
 
         <Routes>
           <Route path="/" element={<Home isLogIn={isLoggedIn} onLogout={logoutHandler} />} />
           <Route path="/login" element={<MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />} />
+          <Route path="/signup" element={<Signup isAuthenticated={isLoggedIn} onLogout={logoutHandler} onSignup={signupHandler}/>} />
           <Route path='/login/nav' element={<Navigation isAuthenticated={isLoggedIn} onLogout={logoutHandler} onLogin={loginHandler}/>} />
           <Route path="/purchase" element={<Purchase/>} /> 
           <Route path="/buyback" element ={<BuyBack/>} />

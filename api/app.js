@@ -1,28 +1,35 @@
 var createError = require('http-errors');
 var express = require('express');
 const path = require('path');
-const cors = require('cors')
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 require('./helpers/init_mongodb');
 var AuthRoute = require("./routes/AuthRoutes");
 
 var app = express();
+
 app.use(express.json());
 app.use(cors());
 app.set('views', path.join(__dirname , 'views'));
 app.set('view engine', 'ejs');
+app.use(cookieParser());
+app.use(AuthRoute);
 
-app.get('/' , async(req , res , next) =>{
-  res.send("Hello From Express!!");
+//Cookies
+app.get('/set-cookies' , (req , res) => {
+  // res.setHeader('Set-Cookie' , 'newUser=true');
+  res.cookie('newUser' , false , {maxAge: 1000*60*60*24 , httpOnly:true});
+  res.send('You got Cookies!');
 });
 
-/*
-  Testing Backend data Fetched to display on frontend?
-*/
-const items = ['Item1' , 'Item2' , 'Item3'];
+app.get('/read-cookies' , (req , res)=>{
 
+  const cookies = req.cookies;
+  console.log(cookies);
+  res.json(cookies);
 
-app.use(AuthRoute);
+});
 
 app.use(async (req , res , next)=>{
   next(createError.NotFound());/* npm Package is there called http-errors*/
@@ -40,9 +47,6 @@ app.use((err , req , res , next)=>{
 
 const PORT = process.env.PORT || 9000;
 
-app.get('/' , (req , res)=>{
-  res.json(items);
-});
 
 app.listen(PORT , ()=>{
   console.log(`Server Running on port ${PORT}`);

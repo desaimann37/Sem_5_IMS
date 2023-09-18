@@ -5,6 +5,8 @@ function Purchase() {
   return (
     <div>
       <SideBar />
+      <h1>Inside Purchase</h1>
+
     </div>    
   )
 }

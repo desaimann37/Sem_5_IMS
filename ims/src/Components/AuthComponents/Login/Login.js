@@ -25,27 +25,34 @@ const Login = (props) => {
           };
     } , [enteredEmail , enteredPassword]);
 
+
+
     const emailChangeHandler = (event)=>{
         setEnteredEmail(event.target.value);
     }
     const passwordChangeHandler = (event)=>{
         setEnteredPassword(event.target.value);
     }
-    const validateEmailHandler = ()=>{
+    const validateEmailHandler = () => {
+      // console.log('Email validator!');
+        // console.log(enteredEmail);
         setEmailIsValid(enteredEmail.includes('@'));
     }
-    const validatePasswordHandler = ()=>{
+    const validatePasswordHandler = () => {
+        // console.log('password validator!');
+        // console.log(enteredPassword);
         setPasswordIsValid(enteredPassword.trim().length > 6)
     }
-    const submitHandler = (event)=>{
-        event.preventDefault();
-        props.newOnLogin(enteredEmail , enteredPassword);
+    const submitHandler = (event) => {
+      // event.preventDefault();  
+      // console.log(enteredEmail);
+      props.newOnLogin(enteredEmail , enteredPassword);
     }
     
 
   return (
     <Card className={classes.login}>
-        <h1>It's Time to Login</h1>
+        <h1>✦✧✦ It's Time to Login ✦✧✦</h1>
         <form onSubmit={submitHandler}>
         <div
           className={`${classes.control} ${
@@ -56,9 +63,11 @@ const Login = (props) => {
           <input
             type="email"
             id="email"
+            name="email"
             value={enteredEmail}
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
+            required
           />
         </div>
         <div
@@ -78,14 +87,14 @@ const Login = (props) => {
         </div>
         <br />
         <div className={classes.actions}>
-          <Button type="submit" className={classes.btn} disabled={!formIsValid} onClick={props.newOnLogin}>
+          <Button type="submit" className={classes.btn} disabled={!formIsValid} onClick={props.newOnLogin} >
             Login
           </Button>
         </div>
         
         <br/>
-
-        {(props.isLoggedIn === true) ? "Yes" : "No"}
+        {(props.isLoggedIn === true) ? "You are Already Loggedin  | " : "You are not loggedin | "}<a href='/signup'>signup</a> 
+        
         </form>
     </Card>
   )

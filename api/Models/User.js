@@ -25,6 +25,7 @@ userSchema.pre('save' , async function(next){
     this.password = await bcrypt.hash(this.password , salt);
     next();
 });
+
 //fire a function after document saved to db
 userSchema.post('save' , function(doc , next){
     console.log('new user was created & saved' , doc);

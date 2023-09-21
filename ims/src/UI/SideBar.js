@@ -12,13 +12,13 @@ const SideBar = (props) => {
         <Sidebar className='npm_sidebar'>
           <Menu>
             <SubMenu label="Options" rootStyles={{backgroundColor:'#cbe9df'}} icon={<ListIcon />}>
-              <MenuItem component={<Link to="/vendors"/>} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'} }>
+              <MenuItem component={<Link to="/vendors"/>} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'}} >
                 Vendors
               </MenuItem>
-              <MenuItem component={<Link to="/history"/>} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'} }>
+              <MenuItem component={<Link to="/history"/>} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'}} >
                 History
               </MenuItem>
-              <MenuItem component={<Link to="/items" />} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'} }>
+              <MenuItem component={<Link to="/items" />} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'}} >
                 Items
               </MenuItem>
             </SubMenu>

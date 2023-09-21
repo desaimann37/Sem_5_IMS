@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 const Signup = (props) => {
+    
     const [enteredEmail , setEnteredEmail] = useState('');
     const [emailIsValid , setEmailIsValid] = useState();
     const [enteredPassword , setEnteredPassword] = useState('');
@@ -25,8 +26,7 @@ const Signup = (props) => {
           };
     } , [enteredEmail , enteredPassword]);
 
-
-
+   
     const emailChangeHandler = (event)=>{
         setEnteredEmail(event.target.value);
     }
@@ -43,15 +43,33 @@ const Signup = (props) => {
         // console.log(enteredPassword);
         setPasswordIsValid(enteredPassword.trim().length > 6)
     }
-    const signupSubmitHandler = (event) => {
+    const signupSubmitHandler = async (event) => {
+        event.preventDefault();
+        // console.log(enteredEmail , enteredPassword);
         const email = enteredEmail;
         const password = enteredPassword;
-        console.log(email , password);
+        try{
+            const res = await fetch('http://localhost:9000/signup' , {
+                method: 'POST',
+                body: JSON.stringify({email , password}),
+                headers: {'Content-Type' : 'application/json'}
+            });
+            const data = await res.json();
+            console.log(data);
+            if(data.errors){
+                
+            }
+        }catch(err){
+            console.log(err);
+        }
+
+        //Redirecting to Successfull Signup
+        // window.location.replace("/signup-confirmation");
     }
 
   return (
     <Card className={classes.login}>
-        <form onSubmit={signupSubmitHandler}>
+        <form>
             <h2>◆◇◆ New Connection ◆◇◆</h2>
             <div
             className={`${classes.control} ${
@@ -87,7 +105,11 @@ const Signup = (props) => {
             <div class="password error"></div>
             </div>
             <br/>
-            <Button type="submit" className={classes.btn} onClick={props.onSignup} disabled={!formIsValid}>SignUp</Button>
+            
+            <Button className={classes.btn} onClick={signupSubmitHandler} disabled={!formIsValid} >SignUp
+            </Button>
+            {/* {(props.isAuthenticated === true) ? "You are Already Loggedin  | " : "You are not loggedin | "}  */}
+
             <br/>
             <br/>
             {"Already an user? | "}<a href='/login/nav'>login</a> 

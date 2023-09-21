@@ -13,9 +13,8 @@
     margin-left: 0px;
 }
 .button {
-
   font-family: 'Kablammo', cursive;
-  border : 2px solid black;
+  border : 3px solid rgb(28, 26, 26);
   height: 50px;
   width: 150px;
   display: flex;

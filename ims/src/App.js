@@ -20,8 +20,10 @@ import { useState } from 'react';
 import MainHeader from './Components/AuthComponents/MainHeader/MainHeader';
 import Navigation from './Components/AuthComponents/MainHeader/Navigation';
 import Signup from './Components/AuthComponents/Signup/Signup';
+import SignupConfirmation from './UI/SignupConfirmation';
 
 function App() {
+
 /*  -> Testing backend data to be fetched on frontend
 
   const [items , setItems] = useState([]);
@@ -45,18 +47,21 @@ function App() {
       setIsLoggedIn(true);
     }
   },[]);
+  // useEffect(()=>{
 
-  const loginHandler = (email , password) => {
+
+  // } ,[isLoggedIn]);
+
+  const loginHandler = () => {
     localStorage.setItem('isLoggedIn' , 1);
     setIsLoggedIn(true);
   }
-  const signupHandler = async(event)=>{
-    
-    //Logic to store email and password in the database :
-    
-    
+/* Use this if we want to do stuff related to signup 
+  const signupHandler = ()=>{
+
     setIsLoggedIn(true);
   }
+*/
   const logoutHandler = () => {
     localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
@@ -67,13 +72,14 @@ function App() {
       <BrowserRouter>
         <header className='common_header'>
            <Link className='header' to="/"><h1 className='stripe-text'>Inventory Management</h1></Link>
-          </header>
+        </header>
         <hr className='hr'/>
-
+        
         <Routes>
           <Route path="/" element={<Home isLogIn={isLoggedIn} onLogout={logoutHandler} />} />
+          <Route path="/signup-confirmation" element={<SignupConfirmation />} />
           <Route path="/login" element={<MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />} />
-          <Route path="/signup" element={<Signup isAuthenticated={isLoggedIn} onLogout={logoutHandler} onSignup={signupHandler}/>} />
+          <Route path="/signup" element={<Signup isAuthenticated={isLoggedIn} onLogout={logoutHandler} /*onSignup={signupHandler}*//>} />
           <Route path='/login/nav' element={<Navigation isAuthenticated={isLoggedIn} onLogout={logoutHandler} onLogin={loginHandler}/>} />
           <Route path="/purchase" element={<Purchase/>} /> 
           <Route path="/buyback" element ={<BuyBack/>} />

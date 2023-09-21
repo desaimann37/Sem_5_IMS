@@ -4,6 +4,7 @@ import SideBar from './SideBar'
 import '../CSS/Home.css'
 import { Navigate } from 'react-router-dom'
 
+
 const Home = (props) => {
   
   if(!props.isLogIn){
@@ -16,7 +17,7 @@ const Home = (props) => {
       {console.log(props.isLogIn)}
       <div class="home">
           <SideBar onLogout={props.onLogout} />
-          <Body/>
+          <Body />
       </div>
       </>
     )

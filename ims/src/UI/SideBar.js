@@ -6,6 +6,7 @@ import ListIcon from '@mui/icons-material/List';
 import PictureAsPdfTwoToneIcon from '@mui/icons-material/PictureAsPdfTwoTone';
 
 const SideBar = (props) => {
+  
   return (
     <div className='sidebar'>
       {/* <div className='sidebar__content'> */}

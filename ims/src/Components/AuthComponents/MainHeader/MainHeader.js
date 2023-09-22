@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { /*MagnifyingGlass , */ RotatingLines } from 'react-loader-spinner'
-
+import { MagnifyingGlass /*, RotatingLines*/ } from 'react-loader-spinner'
 
 const MainHeader = (props) => {
 
-    const renderText = "Redirecting to Login page";
+    const renderText = "Redirecting to Login page...";
+
     useEffect(()=>{
         const timeout = setTimeout(() => {
             window.location.replace('/login/nav');
@@ -13,10 +13,10 @@ const MainHeader = (props) => {
     } , []);
 
     return (
-    <React.Fragment>
+    <div>
 
         <h1>{renderText}</h1>
-        {/* <MagnifyingGlass
+        <MagnifyingGlass
             visible={true}
             height="120"
             width="120"
@@ -25,15 +25,15 @@ const MainHeader = (props) => {
             wrapperClass="MagnifyingGlass-wrapper"
             glassColor = '#c0efff'
             color = '#e15b64'
-        /> */}
-        <RotatingLines
+        />
+        {/* <RotatingLines
             strokeColor="#000000"
             strokeWidth="5"
             animationDuration="0.75"
             width="96"
             visible={true}
-        />
-    </React.Fragment>
+        /> */}
+    </div>
     )
 }
 

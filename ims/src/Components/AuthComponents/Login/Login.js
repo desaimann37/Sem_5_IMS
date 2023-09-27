@@ -15,6 +15,7 @@ const Login = (props) => {
     useEffect(()=>{
         const timeout = setTimeout(()=>{
             console.log('Checking form validity!');
+            
             setFormIsValid(
                 enteredEmail.includes('@') && enteredPassword.trim().length > 6
             );
@@ -42,17 +43,52 @@ const Login = (props) => {
         // console.log(enteredPassword);
         setPasswordIsValid(enteredPassword.trim().length > 6)
     }
-    const submitHandler = (event) => {
-      // event.preventDefault();  
+    const submitHandler = async(event) => {
+      event.preventDefault();  
+      // props.newOnLogin(enteredEmail , enteredPassword);
+
       // console.log(enteredEmail);
-      props.newOnLogin(enteredEmail , enteredPassword);
+      // console.log(enteredPassword);
+      const email = enteredEmail;
+      const password = enteredPassword;
+      const emailError = document.querySelector('.email error');
+      const passwordError = document.querySelector('.password error');
+      //reset errors : 
+
+      // emailError.textContent = 'nothing';
+      // passwordError.textContent = 'nothing';
+
+      try{
+        const res = await fetch('/login' , {
+          method : 'POST',
+          body: JSON.stringify({email , password}),
+          headers : {'Content-Type' : 'application/json'}
+        });
+        const data = await res.json();
+        console.log(data);
+        if(data.errors){
+          emailError.textContent = data.errors.email;
+          passwordError.textContent = data.errors.password;
+        }
+        if(data.user){
+          window.location.assign('/');
+        }
+
+      }catch(err){
+        console.log(err);
+      }
+
+
+
+      
+      // props.newOnLogin(enteredEmail , enteredPassword);
     }
     
 
   return (
     <Card className={classes.login}>
         <h1>✦✧✦ It's Time to Login ✦✧✦</h1>
-        <form onSubmit={submitHandler}>
+        <form>
         <div
           className={`${classes.control} ${
             emailIsValid === false ? classes.invalid : ''
@@ -68,6 +104,8 @@ const Login = (props) => {
             onBlur={validateEmailHandler}
             required
           />
+          <div className='email error'></div>
+
         </div>
         <div
           className={`${classes.control} ${
@@ -83,10 +121,11 @@ const Login = (props) => {
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
           />
+          <div className='password error'></div>
         </div>
         <br />
         <div className={classes.actions}>
-          <Button type="submit" className={classes.btn} disabled={!formIsValid} onClick={props.newOnLogin} >
+          <Button type="submit" className={classes.btn} disabled={!formIsValid} onClick={submitHandler}>
             Login
           </Button>
         </div>

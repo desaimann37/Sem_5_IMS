@@ -44,8 +44,12 @@ const Signup = (props) => {
         setPasswordIsValid(enteredPassword.trim().length > 6)
     }
     const signupSubmitHandler = async (event) => {
+
         event.preventDefault();
         // console.log(enteredEmail , enteredPassword);
+        // const emailError = document.querySelector('.email.error');
+        // const passwordError = document.querySelector('.password.error');
+
         const email = enteredEmail;
         const password = enteredPassword;
         try{
@@ -56,8 +60,8 @@ const Signup = (props) => {
             });
             const data = await res.json();
             console.log(data);
-            if(data.errors){
-                
+            if(data.user){
+                window.location.assign('/signup-confirmation');
             }
         }catch(err){
             console.log(err);
@@ -87,7 +91,7 @@ const Signup = (props) => {
             />
             </div>
 
-            <div class="email error"></div>
+            <div className="email error"></div>
             <div
             className={`${classes.control} ${
                 passwordIsValid === false ? classes.invalid : ''
@@ -102,7 +106,7 @@ const Signup = (props) => {
                 onBlur={validatePasswordHandler} 
                 name="password"
             />
-            <div class="password error"></div>
+            <div className="password error"></div>
             </div>
             <br/>
             

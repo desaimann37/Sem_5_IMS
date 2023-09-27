@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { MagnifyingGlass /*, RotatingLines*/ } from 'react-loader-spinner'
+import { MagnifyingGlass /*, RotatingLines*/ } from 'react-loader-spinner';
 
 const MainHeader = (props) => {
 

@@ -11,10 +11,13 @@ const Home = (props) => {
     return (
       <Navigate to="/login/nav"/>
     )
+  }else if(props.isLogIn){
+    <Navigate to="/"/>
   }
     return (
       <>
       {/* {console.log(props.isLogIn)} */}
+      
       <div class="home">
           <SideBar onLogout={props.onLogout} />
           <Body />

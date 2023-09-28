@@ -40,10 +40,11 @@
     color: white;
     background: linear-gradient(rgb(92, 201, 255), rgb(237, 197, 204));
     overflow-y: overlay;
-    /* background-image: url('../img/inventory_mgmt_background_img.jpg'); */
-    /* background-size: cover; */
+    background-image: url('../img/inventory_mgmt_background_img.jpg');
     background-size: cover;
-    background-position: fixed;
+    background-position: center center;
+    background-attachment: fixed; /* Add this line */
+
 }
 
 .row_1_rectangle{

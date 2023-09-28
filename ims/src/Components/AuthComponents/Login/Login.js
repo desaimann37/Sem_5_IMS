@@ -3,6 +3,7 @@ import { useState , useEffect} from 'react';
 import Card from '../UI/Card';
 import classes from './Login.module.css'
 import Button from '../UI/Button';
+// import { RotatingLines } from 'react-loader-spinner';
 
 const Login = (props) => {
 
@@ -51,15 +52,15 @@ const Login = (props) => {
       // console.log(enteredPassword);
       const email = enteredEmail;
       const password = enteredPassword;
-      const emailError = document.querySelector('.email error');
-      const passwordError = document.querySelector('.password error');
+      const emailError = document.querySelector('.email.error');
+      const passwordError = document.querySelector('.password.error');
       //reset errors : 
 
-      // emailError.textContent = 'nothing';
-      // passwordError.textContent = 'nothing';
+      emailError.textContent = '';
+      passwordError.textContent = '';
 
       try{
-        const res = await fetch('/login' , {
+        const res = await fetch('http://localhost:9000/login', {
           method : 'POST',
           body: JSON.stringify({email , password}),
           headers : {'Content-Type' : 'application/json'}
@@ -71,16 +72,18 @@ const Login = (props) => {
           passwordError.textContent = data.errors.password;
         }
         if(data.user){
-          window.location.assign('/');
+          await new Promise((resolve) => {
+            setTimeout(() => {
+              window.location.assign('/');
+              resolve();
+            }, 2000);
+          });
+          props.newOnLogin(true);
+          window.location.assign("/");
         }
-
       }catch(err){
         console.log(err);
       }
-
-
-
-      
       // props.newOnLogin(enteredEmail , enteredPassword);
     }
     
@@ -104,7 +107,7 @@ const Login = (props) => {
             onBlur={validateEmailHandler}
             required
           />
-          <div className='email error'></div>
+          <div className="email error"></div>
 
         </div>
         <div
@@ -121,7 +124,7 @@ const Login = (props) => {
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
           />
-          <div className='password error'></div>
+          <div className="password error"></div>
         </div>
         <br />
         <div className={classes.actions}>

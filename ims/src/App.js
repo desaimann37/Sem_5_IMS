@@ -21,6 +21,8 @@ import MainHeader from './Components/AuthComponents/MainHeader/MainHeader';
 import Navigation from './Components/AuthComponents/MainHeader/Navigation';
 import Signup from './Components/AuthComponents/Signup/Signup';
 import SignupConfirmation from './UI/SignupConfirmation';
+import NotFound from './Components/NotFound';
+
 
 function App() {
 
@@ -93,6 +95,7 @@ function App() {
           <Route path="/reports/purchase" element={<PurchaseReport />} />
           <Route path="/reports/buyback" element={<BuyBackReport />} />
           <Route path="/reports/maintainance" element={<MaintainanceReport />} />
+          <Route path="*" element={<NotFound/>} />
         </Routes>
       </BrowserRouter>
 

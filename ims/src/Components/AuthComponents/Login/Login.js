@@ -107,9 +107,10 @@ const Login = (props) => {
             onBlur={validateEmailHandler}
             required
           />
-          <div className="email error"></div>
-
         </div>
+        {/* <br /> */}
+        <div className="email error"></div>
+
         <div
           className={`${classes.control} ${
             passwordIsValid === false ? classes.invalid : ''
@@ -124,8 +125,8 @@ const Login = (props) => {
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
           />
-          <div className="password error"></div>
         </div>
+        <div className="password error"></div>
         <br />
         <div className={classes.actions}>
           <Button type="submit" className={classes.btn} disabled={!formIsValid} onClick={submitHandler}>

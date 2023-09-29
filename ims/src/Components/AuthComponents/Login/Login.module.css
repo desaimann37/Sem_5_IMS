@@ -16,6 +16,10 @@
   .control input {
     display: block;
   }
+  .email.error,
+  .password.error{
+    color: red;
+  }
   
   .control label {
     font-weight: bold;

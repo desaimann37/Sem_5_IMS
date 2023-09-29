@@ -110,7 +110,7 @@
     min-width: 150px; 
     position: relative;
     transition: width 0.3s ease;
-    background: linear-gradient(rgb(92, 201, 255), rgb(237, 197, 204));
+    /* background: linear-gradient(rgb(92, 201, 255), rgb(237, 197, 204)); */
     color: black;
 }
 @media screen and (max-height: 450px) {

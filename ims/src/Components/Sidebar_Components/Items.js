@@ -1,11 +1,14 @@
 import React from 'react'
 import SideBar from '../../UI/SideBar';
+import '../../CSS/Items.css';
 
 function Items() {
   return (
-    <div>
+    <div className='items-container'>
         <SideBar />
-        Inside Items!!
+      <div className='content'>
+        <h1>Inside Items!!</h1>
+      </div>
     </div>
   )
 }

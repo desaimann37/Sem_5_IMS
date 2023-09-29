@@ -18,7 +18,7 @@ const Home = (props) => {
       <>
       {/* {console.log(props.isLogIn)} */}
       
-      <div class="home">
+      <div className="home">
           <SideBar onLogout={props.onLogout} />
           <Body />
       </div>

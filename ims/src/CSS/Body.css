@@ -38,7 +38,7 @@
     height: 100vh;
     flex: 0.8;
     color: white;
-    background: linear-gradient(rgb(92, 201, 255), rgb(237, 197, 204));
+    /* background: linear-gradient(rgb(92, 201, 255), rgb(237, 197, 204)); */
     overflow-y: overlay;
     background-image: url('../img/inventory_mgmt_background_img.jpg');
     background-size: cover;

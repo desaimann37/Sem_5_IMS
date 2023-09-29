@@ -1,12 +1,15 @@
 import React from 'react'
 import SideBar from '../UI/SideBar';
+import '../CSS/MainItems.css';
 
 function Writeoff() {
   return (
-    <div>
+    <div className='main-container'>
         <SideBar />
-        <h2>Inside WriteOff!</h2>
-    </div>
+      <div className='content'>
+        <h1>Inside Writeoff!!</h1>
+      </div>
+    </div> 
   )
 }
 

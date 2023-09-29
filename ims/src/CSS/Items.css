@@ -1,0 +1,9 @@
+.items-container {
+    display: flex;
+  }
+  
+  .content {
+    flex: 1; /* Takes up remaining space */
+    padding: 20px; /* Adjust as needed */
+    /* Other styles for your content */
+  }

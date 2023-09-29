@@ -27,7 +27,6 @@ const SideBar = (props) => {
             <hr style={{color:'#000000'}}/>
 
             <SubMenu label="Reports" rootStyles={{backgroundColor:'#cbe9df'}} icon = {<PictureAsPdfTwoToneIcon /> }>
-
               <MenuItem component={<Link to="/reports/purchase"/>} className='menuItems' rootStyles={{borderColor:'#000000' , borderBlockidth:'2px'} }>
                 Purchased
               </MenuItem>

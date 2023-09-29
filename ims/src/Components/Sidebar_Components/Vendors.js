@@ -1,11 +1,14 @@
-import React from 'react'
-import SideBar from '../../UI/SideBar'
-import '../../CSS/SideBar.css'
+import React from 'react';
+import SideBar from '../../UI/SideBar';
+import '../../CSS/Items.css';
 
 function Vendors() {
   return (
-    <div className='body'>
-        <SideBar className='vendors_sidebar'/>
+    <div className='items-container'>
+      <SideBar />
+      <div className='content'>
+        <h1>Inside Vendors!!</h1>
+      </div>
     </div>
   )
 }

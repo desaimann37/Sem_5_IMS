@@ -47,8 +47,11 @@ const Signup = (props) => {
 
         event.preventDefault();
         // console.log(enteredEmail , enteredPassword);
-        // const emailError = document.querySelector('.email.error');
-        // const passwordError = document.querySelector('.password.error');
+        const emailError = document.querySelector('.email.error');
+        const passwordError = document.querySelector('.password.error');
+        
+        emailError.textContent = '';
+        passwordError.textContent = '';
 
         const email = enteredEmail;
         const password = enteredPassword;
@@ -60,6 +63,10 @@ const Signup = (props) => {
             });
             const data = await res.json();
             console.log(data);
+            if(data.errors){
+                emailError.textContent = data.errors.email;
+                passwordError.textContent = data.errors.password;
+            }
             if(data.user){
                 window.location.assign('/signup-confirmation');
             }

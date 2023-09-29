@@ -33,8 +33,6 @@ app.get('/read-cookies' , (req , res)=>{
 });
 
 
-//routes : 
-// app.get('/');
 
 app.use(async (req , res , next)=>{
   next(createError.NotFound());/* npm Package is there called http-errors*/

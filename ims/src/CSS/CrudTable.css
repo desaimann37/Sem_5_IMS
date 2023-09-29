@@ -1,0 +1,39 @@
+body{
+	background-color:rgb(250, 249, 246);
+}
+table{
+	/* width:100%; */
+	margin-left: 80px;
+	margin-right: 20px;
+}
+
+td form {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+    border-collapse: collapse; /* This property ensures that adjacent table borders are collapsed into a single border. */
+    width: 80%; /* Adjust the width as needed */
+}
+
+table, th, td {
+    border: 2px solid #000000; /* Add a 1px solid gray border to the table, table headers, and table cells */
+}
+
+th, td {
+    padding: 28px; /* Add padding to the table headers and cells for spacing */
+}
+.Addbutton {
+	border: 2px solid black;
+	margin-left: -90px;
+	background-color: #aaedad; /* Green */
+	color: rgb(0, 0, 0);
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	width: 200px;
+	border-radius: 25px;
+  }

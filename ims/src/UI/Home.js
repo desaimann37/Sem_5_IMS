@@ -11,8 +11,6 @@ const Home = (props) => {
     return (
       <Navigate to="/login/nav"/>
     )
-  }else if(props.isLogIn){
-    <Navigate to="/"/>
   }
     return (
       <>

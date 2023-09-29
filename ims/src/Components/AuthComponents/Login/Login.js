@@ -67,10 +67,12 @@ const Login = (props) => {
         });
         const data = await res.json();
         console.log(data);
+
         if(data.errors){
           emailError.textContent = data.errors.email;
           passwordError.textContent = data.errors.password;
         }
+        
         if(data.user){
           await new Promise((resolve) => {
             setTimeout(() => {

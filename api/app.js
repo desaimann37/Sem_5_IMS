@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(AuthRoute);
 
-//Cookies
+//Cookies :
 app.get('/set-cookies' , (req , res) => {
   // res.setHeader('Set-Cookie' , 'newUser=true');
   res.cookie('newUser' , false , {maxAge: 1000*60*60*24 , httpOnly:true});

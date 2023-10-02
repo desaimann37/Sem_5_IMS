@@ -1,5 +1,6 @@
 const User = require("../Models/User");
 const jwt = require('jsonwebtoken');
+const Admin = require("../Models/Admin");
 
 // handle errors
 const handleErrors = (err) => {
@@ -82,3 +83,14 @@ module.exports.login_post = async (req, res) => {
   // console.log(email, password);
   //res.send('user login');
 }
+module.exports.admin_post = async (req , res)=>{
+
+  const {product_name , quantity} = req.body;
+  try{
+    const purchase_data = await Admin.create({product_name: product_name , qty: quantity });
+    res.status(201).json({ purchase_data : purchase_data._id });
+  }catch(err){
+    res.status(400).json({ "msg": "Got an error in admin_post while getting product_name & qty"});
+  }
+}
+

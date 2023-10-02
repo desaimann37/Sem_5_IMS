@@ -1,7 +1,7 @@
 import './App.css';
 import './UI/Body.js';
 import React from 'react';
-import {BrowserRouter, Route, Routes , Link} from "react-router-dom";
+import {BrowserRouter, Route, Routes , Link, useNavigate} from "react-router-dom";
 import Home from './UI/Home';
 import Purchase from './Components/Purchase';
 import Vendors from './Components/Sidebar_Components/Vendors';
@@ -19,6 +19,7 @@ import Writeoff from './Components/Writeoff';
 import { useState } from 'react';
 import MainHeader from './Components/AuthComponents/MainHeader/MainHeader';
 import Navigation from './Components/AuthComponents/MainHeader/Navigation';
+// import Login from './Components/AuthComponents/Login/Login';
 import Signup from './Components/AuthComponents/Signup/Signup';
 import SignupConfirmation from './UI/SignupConfirmation';
 import NotFound from './Components/NotFound';
@@ -41,6 +42,7 @@ function App() {
   } , []);
 
 */
+// const navigate = useNavigate();
   const [isLoggedIn , setIsLoggedIn] = useState(false);
 
   useEffect(()=>{
@@ -56,7 +58,9 @@ function App() {
 
   const loginHandler = () => {
     localStorage.setItem('isLoggedIn' , 1);
-    setIsLoggedIn(true);
+      setIsLoggedIn(true);
+    window.location.assign("/");
+      
   }
 /* Use this if we want to do stuff related to signup 
   const signupHandler = ()=>{
@@ -83,10 +87,10 @@ function App() {
           <Route path="/login" element={<MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />} />
           <Route path="/signup" element={<Signup isAuthenticated={isLoggedIn} onLogout={logoutHandler} /*onSignup={signupHandler}*//>} />
           <Route path='/login/nav' element={<Navigation isAuthenticated={isLoggedIn} onLogout={logoutHandler} onLogin={loginHandler}/>} />
-          <Route path="/purchase" element={<Purchase/>} /> 
-          <Route path="/buyback" element ={<BuyBack/>} />
-          <Route path="/maintainance" element ={<Maintainance />} />
-          <Route path="/writeoff" element ={<Writeoff />} />
+          <Route path="/purchase" element={<Purchase isLogin={isLoggedIn}/> } /> 
+          <Route path="/buyback" element ={<BuyBack isLogin={isLoggedIn}/>} />
+          <Route path="/maintainance" element ={<Maintainance isLogin={isLoggedIn}/>} />
+          <Route path="/writeoff" element ={<Writeoff isLogin={isLoggedIn}/>} />
 
           <Route path="/vendors" element={<Vendors />} />
           <Route path="/history" element={<History />} />

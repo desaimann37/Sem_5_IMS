@@ -9,8 +9,6 @@ const details_admin = db.Schema({
         type: String,
         required: true,
     }
-
-
 });
 
 module.exports = db.model('AdminDetailsSchema' , details_admin);

@@ -10,7 +10,8 @@ const adminPurchasedSchema = new mongoose.Schema({
     qty:{
         type: Number,
         required: [true , "please enter no. of qty of product"],
-    }
+    },
+    
 });
 
 

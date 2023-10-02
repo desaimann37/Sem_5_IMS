@@ -19,13 +19,15 @@ const Purchase = (props) => {
     // date_time: '',
     // admin_name: '',
   });
-  // const [submittedItems, setSubmittedItems] = useState([]);
+
+  const [purchasedItems, setPurchasedItems] = useState([]);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [selectedProductName, setSelectedProductName] = useState('');
   const [numberOfItems, setNumberOfItems] = useState('');
 
   useEffect(() => {
     purchaseData();
+    getPurchasedItems();
   }, []);
 
   const handleProductChange = (e) => {
@@ -71,14 +73,9 @@ const Purchase = (props) => {
     try {
       const response = await axios.post("http://localhost:9000/admin", postData);
       // Add the submitted item to the submittedItems array
-      
 
       console.log('Data successfully posted to the backend');
-      // setSubmittedItems([...submittedItems, postData]);
 
-      // // Clear the form input values
-      // setSelectedProductName("");
-      // setNumberOfItems("");
       //After Submit Hide Button
       hideForm();
 
@@ -86,10 +83,20 @@ const Purchase = (props) => {
       console.log("Error While Posting Data To backend {quantity and product_name} : " + err);
     }
   }
+  const getPurchasedItems = async () => {
+
+    await axios.get("http://localhost:9000/admin/getPurchasedProductDetails")
+      .then((data) => {
+        setPurchasedItems(data?.data);
+      },
+        (error) => {
+          console.log("Error while getting data for purchasedProductData : " + error);
+        }
+      );
+  };
 
   return (
     <>
-
       <div className='main-container'>
         <SideBar />
         <div className='content'>
@@ -123,79 +130,25 @@ const Purchase = (props) => {
                   <tbody style={{ backgroundColor: '#f8f8ff' }}>
 
                     {/* Here add Dynamic <tr> <td> ... while submitting form with it's details */}
-                    {/* {submittedItems.map((item, index) => (
+                    {purchasedItems.map((item, index) => (
                       <tr key={index}>
                         <td>{item.product_name}</td>
-                        <td>{item.quantity}</td>
+                        <td>{item.qty}</td>
                         <td>
                           <center>
                             <Link to='/update'>
-                              {' '}
                               <ModeEditIcon fontSize='large' />
                             </Link>
                             <Link to='/delete'>
                               <DeleteOutlineIcon
                                 style={{ color: 'red' }}
                                 fontSize='large'
-                              />{' '}
+                              />
                             </Link>
                           </center>
                         </td>
                       </tr>
-                    ))} */}
-
-                    <tr>
-                        <td>CPU</td>
-                        <td>2</td>
-                        <td>
-                          <center>
-                            <Link to='/update'>
-                              {' '}
-                              <ModeEditIcon fontSize='large' />
-                            </Link>
-                            <Link to='/delete'>
-                              <DeleteOutlineIcon
-                                style={{ color: 'red' }}
-                                fontSize='large'
-                              />{' '}
-                            </Link>
-                          </center>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Keyboard</td>
-                        <td>5</td>
-                        <td>
-                          <Link to='#'>
-                            {' '}
-                            <center>
-                              <ModeEditIcon fontSize='large' />
-                              <DeleteOutlineIcon
-                                style={{ color: 'red' }}
-                                fontSize='large'
-                              />{' '}
-                            </center>
-                          </Link>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Monitor</td>
-                        <td>10</td>
-                        <td>
-                          <Link to='#'>
-                            {' '}
-                            <center>
-                              <ModeEditIcon fontSize='large' />
-                              <DeleteOutlineIcon
-                                style={{ color: 'red' }}
-                                fontSize='large'
-                              />{' '}
-                            </center>
-                          </Link>
-                        </td>
-                      </tr>
-                   
-                    {/* Additional table rows */}
+                    ))}                      
                   </tbody>
                 </table>
               </center>
@@ -210,7 +163,6 @@ const Purchase = (props) => {
             {/* Add your form fields and content here */}
             Select Name of Item :
             <select value={selectedProductName} onChange={handleProductChange}>
-
               <option value={formData[0].product_name}>
                 {formData[0].product_name}
               </option>

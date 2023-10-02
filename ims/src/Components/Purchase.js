@@ -19,6 +19,7 @@ const Purchase = (props) => {
     // date_time: '',
     // admin_name: '',
   });
+  var flag = false;
 
   const [purchasedItems, setPurchasedItems] = useState([]);
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -52,6 +53,52 @@ const Purchase = (props) => {
           console.log("Error while getting data for purchaseData : " + error)
         }
       )
+  }
+  const updateEntryHandler = async (item) => {
+
+    flag = true;
+    showForm();
+    console.log(selectedProductName);
+    console.log(numberOfItems);
+    //Shown Form and update product_name 
+    try {
+      await axios.patch(`http://localhost:9000/admin/updateItem/${item._id}`, {
+        //Update logic
+        product_name: `${selectedProductName}`,
+        qty: `${numberOfItems}`,
+      }).then(() => console.log("Data Updated Successfully!!"));
+
+    } catch (err) {
+      console.log("error While updating record inside updateEntryHandler()");
+    }
+  }
+  const downloadDataHandler = () => {
+    const jsonData = JSON.stringify(purchasedItems, null, 2);
+    const blob = new Blob([jsonData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = 'purchasedData.json';
+    document.body.appendChild(a);
+    a.click();
+    URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+  }
+
+  const deleteEntryHandler = async (item) => {
+    //delete entry
+    try {
+
+      await axios.delete(`http://localhost:9000/admin/deleteItem/${item._id}`)
+        .then(() => {
+          setPurchasedItems((prevItems) => prevItems.filter((prevItem) => prevItem._id !== item._id));
+          console.log('Item deleted successfully');
+        });
+    } catch (err) {
+      console.log('Error while executing deleteEntryHandler() called' + err);
+    }
+
   }
 
   // Function to show the form
@@ -103,7 +150,7 @@ const Purchase = (props) => {
           <br />
           <center>
             <button className='Addbutton' onClick={showForm}>
-              <h2>Add Items</h2>
+              <h2>{flag === true ? 'Update Items' : 'Add Items'}</h2>
             </button>
           </center>
           <div className='row'>
@@ -130,27 +177,30 @@ const Purchase = (props) => {
                   <tbody style={{ backgroundColor: '#f8f8ff' }}>
 
                     {/* Here add Dynamic <tr> <td> ... while submitting form with it's details */}
+
                     {purchasedItems.map((item, index) => (
                       <tr key={index}>
-                        <td>{item.product_name}</td>
-                        <td>{item.qty}</td>
+                        <td><center>{item.product_name}</center></td>
+                        <td><center>{item.qty}</center></td>
                         <td>
                           <center>
-                            <Link to='/update'>
+                            <button onClick={() => updateEntryHandler(item)}>
                               <ModeEditIcon fontSize='large' />
-                            </Link>
-                            <Link to='/delete'>
-                              <DeleteOutlineIcon
-                                style={{ color: 'red' }}
-                                fontSize='large'
-                              />
-                            </Link>
+                            </button>
+                            <button onClick={() => deleteEntryHandler(item)}><DeleteOutlineIcon
+                              style={{ color: 'red' }}
+                              fontSize='large'
+                            /></button>
+
                           </center>
                         </td>
                       </tr>
-                    ))}                      
+                    ))}
                   </tbody>
                 </table>
+                <br />
+                <br />
+                <button className="downloadButton" onClick={() => downloadDataHandler()}><i className="fa fa-download"></i> Download Data</button>
               </center>
             </div>
           </div>
@@ -190,6 +240,7 @@ const Purchase = (props) => {
             <button className="close" onClick={hideForm}>Close</button>
           </div>
         </div>
+
       )}
     </>
   );

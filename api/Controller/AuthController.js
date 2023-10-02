@@ -83,6 +83,7 @@ module.exports.login_post = async (req, res) => {
   // console.log(email, password);
   //res.send('user login');
 }
+
 module.exports.admin_post = async (req , res)=>{
 
   const {product_name , quantity} = req.body;

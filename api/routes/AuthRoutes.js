@@ -12,4 +12,7 @@ router.use("/admin", require('../Routers/PurchaseRouter.js'));
 router.post("/admin" , authController.admin_post);
 router.use("/admin" , require('../Routers/PurchaseRouter.js'));
 router.patch("/admin" , require('../Routers/PurchaseRouter.js'));
+// router.post("/pdf" , require('../Routers/BuyBackRouter.js'));
+
+
 module.exports = router;

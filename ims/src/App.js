@@ -82,7 +82,7 @@ function App() {
         <hr className='hr'/>
         
         <Routes>
-          <Route path="/" element={<Home isLogIn={isLoggedIn} onLogout={logoutHandler} />} />
+          <Route path="/" element={isLoggedIn ? <Home isLogIn={isLoggedIn} onLogout={logoutHandler}/> : <Navigation isAuthenticated={isLoggedIn} onLogout={logoutHandler} onLogin={loginHandler}/>} />
           <Route path="/signup-confirmation" element={<SignupConfirmation />} />
           <Route path="/login" element={<MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />} />
           <Route path="/signup" element={<Signup isAuthenticated={isLoggedIn} onLogout={logoutHandler} /*onSignup={signupHandler}*//>} />

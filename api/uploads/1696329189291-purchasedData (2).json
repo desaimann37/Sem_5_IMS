@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "651a999839b3bcaf50754c0c",
+    "product_name": "product b",
+    "qty": 2,
+    "__v": 0
+  },
+  {
+    "_id": "651a999d39b3bcaf50754c0e",
+    "product_name": "product c",
+    "qty": 3,
+    "__v": 0
+  }
+]

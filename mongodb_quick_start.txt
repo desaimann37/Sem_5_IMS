@@ -1,0 +1,7 @@
+//This is to start Mongodb Local Instance on my Machine Simple Life Hack!! :)
+
+//In Windows Power Shell : 
+
+cd C:\Users\Admin\Downloads\mongodb-windows-x86_64-6.0.8\mongodb-win32-x86_64-windows-6.0.8\bin
+./mongod --dbpath C:\Users\Admin\Desktop\MongoDB\db_IMS
+

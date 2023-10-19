@@ -23,17 +23,47 @@ function BuyBack() {
     e.preventDefault();
   }
   const uploadFile = async () => {
+    console.log('Inside uploadFile()');
     try {
       if (selectedFile) {
         const formData = new FormData();
         formData.append('file', selectedFile);
-        await axios.post('http://localhost:9000/file/upload', formData)
+        // console.log(formData);
+
+        const fileContent = await readFileAsDataUrl(selectedFile);
+        console.log(fileContent);
+
+        const fileObject = {
+          _id: selectedFile._id,
+          product_name: selectedFile.product_name,
+          qty: selectedFile.qty,
+          content: fileContent,
+        };
+        const jsonArray = [fileObject];
+        console.log(jsonArray);
+
+
+        await axios.post('http://localhost:9000/admin/buyBack/file/upload', jsonArray)
           .then((response) => console.log('File Uploaded Successfully!!'))
       }
     } catch (err) {
       console.log('Error while uploading file post request to the backend!!' + err);
     }
   };
+
+  function readFileAsDataUrl(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        resolve(event.target.result);
+      };
+      reader.onerror = (error) => {
+        reject(error);
+      };
+      reader.readAsDataURL(file);
+    });
+   
+}
 
   return (
     <div className='main-container'>

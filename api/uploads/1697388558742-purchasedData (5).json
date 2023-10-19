@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "651a999839b3bcaf50754c0c",
+    "product_name": "product b",
+    "qty": 2,
+    "__v": 0
+  },
+  {
+    "_id": "651a999d39b3bcaf50754c0e",
+    "product_name": "product c",
+    "qty": 3,
+    "__v": 0
+  },
+  {
+    "_id": "651bf27e83acc5a6e7020dee",
+    "product_name": "productother",
+    "qty": 111,
+    "__v": 0
+  },
+  {
+    "_id": "651bf28c83acc5a6e7020df6",
+    "product_name": "product a",
+    "qty": 2,
+    "__v": 0
+  },
+  {
+    "_id": "652c1199d89a70f698b4559f",
+    "product_name": "product c",
+    "qty": 123,
+    "__v": 0
+  }
+]

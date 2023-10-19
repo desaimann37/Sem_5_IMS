@@ -12,7 +12,7 @@ import BuyBackReport from './Components/Sidebar_Components/BuyBackReport';
 import MaintainanceReport from './Components/Sidebar_Components/MaintainanceReport'; 
 import Items from './Components/Sidebar_Components/Items';
 import BuyBack from './Components/BuyBack';
-import Maintainance from './Components/Maintainance';
+// import Maintainance from './Components/Maintainance';
 import Writeoff from './Components/Writeoff';
 // import axios from 'axios';
 // import Login from './Components/AuthComponents/Login/Login';
@@ -89,7 +89,7 @@ function App() {
           <Route path='/login/nav' element={<Navigation isAuthenticated={isLoggedIn} onLogout={logoutHandler} onLogin={loginHandler}/>} />
           <Route path="/purchase" element={<Purchase isLogin={isLoggedIn}/> } /> 
           <Route path="/buyback" element ={<BuyBack isLogin={isLoggedIn}/>} />
-          <Route path="/maintainance" element ={<Maintainance isLogin={isLoggedIn}/>} />
+          <Route path="/maintainance" element ={<NotFound />} />
           <Route path="/writeoff" element ={<Writeoff isLogin={isLoggedIn}/>} />
 
           <Route path="/vendors" element={<Vendors />} />

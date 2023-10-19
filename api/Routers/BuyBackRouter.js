@@ -1,16 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const AuthController = require('../Controller/AuthController.js');
-const Admin = require("../Models/Admin.js");
-
-// const PurchaseDetailsSchema = require('../Models/PurchaseDetails.js');
-const ProductDetailsSchema = require('../Models/ProductDetails.js');
-const adminPurchasedSchema = require('../Models/Admin.js');
-// const AdminDetails = require('../Models/AdminDetails.js');
+const buybackDetails = require('../Models/buyBackDetails.js');
 
 router.use(express.json());
 
-//Purchase Details : 
+//buyBack Details :
+router.post('/buyBack/file/upload' , async(req , res)=>{
+    
+    try{
+        const buyback_data = await req.body;
+        console.log(buyback_data);
+    }catch(err){
+        console.log('Error while getting data of upload file of buybackDetails schema' + err);
+    }
+});
+
 
 
 

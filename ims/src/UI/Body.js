@@ -23,7 +23,7 @@ function Body() {
             <Link to="/writeoff" className='common_link'><RecyclingIcon className="writeoff" fontSize='large'/><h1 className='h1_text'>WriteOff</h1></Link>
         </div>
         <div className='rectangle_maintainance'>
-            <Link to="/maintainance" className='common_link'><ConstructionTwoToneIcon className="maintainance" fontSize='large'/><h1 className='h1_text'>Maintainance</h1></Link>
+            <Link to="/maintainance" className='common_link'><ConstructionTwoToneIcon className="maintainance" fontSize='large'/><h1 className='h1_text'>Maintenance</h1></Link>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ function Maintainance() {
     <div className='main-container'>
     <SideBar />
     <div className='content'>
-        <h1>Inside Maintainance!!</h1>
+        <h1>Inside Maintenance!!</h1>
       </div>
     </div> 
   )
